@@ -22,7 +22,8 @@ module JekyllAdmin
       File.open(path, "wb") do |file|
         file.write(content)
       end
-      conditionally_process_site
+      JekyllAdmin.site.read
+     # conditionally_process_site
     end
 
     # Delete the file at the given path
