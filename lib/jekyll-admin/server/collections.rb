@@ -34,7 +34,20 @@ module JekyllAdmin
         end
 
         write_file write_path, document_body
-        json written_file.to_api(:include_content => true)
+        
+
+        if written_file.nil?
+          error_message = "Failed to load the written file after saving. " +
+                          "This might indicate an issue with your file's front matter, " +
+                          "Jekyll configuration, or a transient filesystem issue."
+          logger.error "Jekyll Admin PUT /collections Error: #{error_message}"
+
+
+          halt 500, { :message => error_message }.to_json
+        else
+          json written_file.to_api(:include_content => true)
+        end
+
       end
 
       delete "/:collection_id/*?/?:path.:ext" do
