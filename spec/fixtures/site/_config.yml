@@ -1,5 +1,6 @@
 title: Your awesome title
 
+url: http://localhost:4000
 # Load the admin interface and some plugins for testing.
 plugins:
   - jekyll-admin
