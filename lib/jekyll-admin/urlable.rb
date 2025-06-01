@@ -65,7 +65,12 @@ module JekyllAdmin
     end
 
     def host
-      JekyllAdmin.site.config["host"].sub("127.0.0.1", "localhost")
+      actual_host = JekyllAdmin.site.config["host"]
+      if actual_host == "0.0.0.0" || actual_host == "127.0.0.1"
+        "localhost"
+      else
+        actual_host
+      end
     end
 
     def port
