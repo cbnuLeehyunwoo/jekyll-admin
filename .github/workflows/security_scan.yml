@@ -24,4 +24,4 @@ jobs:
         ruby-version: '3.4'
         bundler-cache: true
     - name: Run Brakeman security scan
-      run: bundle exec brakeman -q -w1 
+      run: bundle exec brakeman -q -w1 --force 
