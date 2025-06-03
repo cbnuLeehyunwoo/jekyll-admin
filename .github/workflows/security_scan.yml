@@ -3,10 +3,11 @@ on:
   push:
     branches:
       - master 
-  pull_request:
+      - docker-dev
+    pull_request:
     branches:
       - master
-
+       
 jobs:
   security:
     name: Run Brakeman Scan 
