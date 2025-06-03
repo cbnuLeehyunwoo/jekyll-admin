@@ -1,4 +1,4 @@
-name: Security Scan (Brakeman)
+name: Security Scan and Audit # 워크플로우 이름 변경: 두 가지 기능을 포함함을 명시
 
 on:
   push:
@@ -8,10 +8,12 @@ on:
   pull_request:
     branches:
       - master
+ 
 
 jobs:
-  security:
-    name: Run Brakeman Scan 
+  security_checks: 
+    name: Run Security Scans (Brakeman & Bundle Audit) 
+
     runs-on: ubuntu-latest
 
     steps:
@@ -23,5 +25,17 @@ jobs:
       with:
         ruby-version: '3.4'
         bundler-cache: true
+
+    # brakeman
+    - name: Add Brakeman Gem to Gemfile (for CI environment) 
+      run: echo 'gem "brakeman"' >> Gemfile && bundle install
+
     - name: Run Brakeman security scan
       run: bundle exec brakeman -q -w1 --force 
+    - name: Install Bundler-audit Gem 
+      
+    # bundler-audit
+      run: gem install bundler-audit
+
+    - name: Run Bundler-audit Check 
+      run: bundle audit check --update
