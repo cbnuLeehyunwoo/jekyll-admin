@@ -11,6 +11,8 @@ group :development do
   # Fixture site dependencies
   gem "jekyll-redirect-from"
   gem "sinatra-cross_origin", "~> 0.3"
+  
+  gem "brakeman"
 end
 
 group :docs do

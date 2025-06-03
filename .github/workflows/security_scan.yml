@@ -1,0 +1,25 @@
+name: Security Scan (Brakeman)
+on:
+  push:
+    branches:
+      - master 
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  security:
+    name: Run Brakeman Scan 
+    runs-on: ubuntu-latest 
+
+    steps: 
+    - name: Checkout repository 
+      uses: actions/checkout@v4
+
+    - name: Set up Ruby 
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1.2'
+        bundler-cache: true 
+    - name: Run Brakeman security scan
+      run: bundle exec brakeman -q -w1
