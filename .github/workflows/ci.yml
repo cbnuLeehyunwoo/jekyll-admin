@@ -2,9 +2,9 @@ name: Continuous Integration
 
 on:
   push:
-    branches: [master, docker-dev] 
+    branches: [master, docker-dev]
   pull_request:
-    branches: [master, docekr-dev] 
+    branches: [master, docker-dev]
 
 jobs:
   ruby:
