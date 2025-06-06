@@ -2,7 +2,7 @@
 Jekyll-admin is an open-source plugin that provides an administrator interface for Jekyll-based websites. 
 ## 📚 Table of Contents
 
-[🚀 Goal](#-goal) · [🔗 Dependencies](#-dependencies) · [🧪 Install Docker image](#-how-to-download-and-install-the-docker-image) · [🛠️ Run Docker container](#-how-to-create-and-run-a-docker-container) · [📁 Directory](#-directory-structure-backend-ruby-frontend-javascript) · [🧹 Exit container and Cleanup](#-how-to-stop-and-clean-up-after-execution) · [📜 License](#-license)
+[🚀 Goal](#🚀-goal) · [🔗 Dependencies](#🔗-dependencies) · [🧪 Install Docker image](#🧪-how-to-download-and-install-the-docker-image) · [🛠️ Run Docker container](#🛠️-how-to-create-and-run-a-docker-container) · [📁 Directory](#📁-directory-structure-backend-ruby-frontend-javascript) · [🧹 Exit container and Cleanup](#🧹-how-to-stop-and-clean-up-after-execution) · [📜 License](#📜-license)
 
 
 ## 🚀Goal
