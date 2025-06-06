@@ -105,6 +105,19 @@ export class PageEdit extends Component {
       front_matter,
       front_matter_defaults,
     } = page;
+   
+    let display_http_url = http_url;
+    const siteUrl = page.site_url || 'http://localhost:4000';
+    if (display_http_url && !display_http_url.startsWith('http')) {
+	display_http_url = `${siteUrl}${display_http_url}`;
+    }
+    else if (display_http_url && display_http_url.startsWith('http://0.0.0.0')) {        display_http_url = display_http_url.replace('http://0.0.0.0', 'http://localhost');
+    }
+
+
+
+
+
     const directory = params.splat[0];
 
     const title = front_matter && front_matter.title ? front_matter.title : '';
@@ -140,7 +153,7 @@ export class PageEdit extends Component {
                 triggered={updated}
                 block
               />
-              <Button to={http_url} type="view" active block />
+              <Button to={display_http_url} type="view" active block />
               <Splitter />
               <Button
                 onClick={() => this.handleClickDelete(name)}

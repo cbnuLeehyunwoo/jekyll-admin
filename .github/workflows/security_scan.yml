@@ -1,0 +1,43 @@
+name: Security Scan and Audit
+
+on:
+  push:
+    branches:
+      - master
+      - docker-dev
+  pull_request:
+    branches:
+      - master
+jobs:
+  security:
+    name: Run Security Scans (Ruby ${{ matrix.ruby_version }})
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false 
+      matrix:
+        ruby_version: ["2.7", "3.3", "3.4"] 
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Ruby ${{ matrix.ruby_version }}
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby_version }} 
+        bundler-cache: true
+
+    # Brakeman 
+    - name: Add Brakeman Gem to Gemfile (for CI environment)
+      run: echo 'gem "brakeman"' >> Gemfile && bundle install
+
+    - name: Run Brakeman security scan
+      run: bundle exec brakeman -q -w1 --force
+
+    # Bundler-audit
+    - name: Install Bundler-audit Gem
+      run: gem install bundler-audit
+
+    - name: Run Bundler-audit Check
+      run: bundle audit check --update

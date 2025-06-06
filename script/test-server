@@ -5,4 +5,12 @@ set -e
 script/branding
 
 cd ./spec/fixtures/site || exit
-RACK_ENV=development bundle exec jekyll serve --verbose --watch "$@"
+
+# Use external host if available
+JEKYLL_HOST=${JEKYLL_EXTERNAL_HOST:-127.0.0.1}
+JEKYLL_PORT=${JEKYLL_EXTERNAL_PORT:-4000}
+
+echo "[INFO] Starting test server at http://${JEKYLL_HOST}:${JEKYLL_PORT}"
+
+RACK_ENV=development bundle exec jekyll serve --verbose --watch --host "0.0.0.0" --port "${JEKYLL_PORT}" "$@"
+
