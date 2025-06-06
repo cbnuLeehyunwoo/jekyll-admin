@@ -6,12 +6,16 @@ Jekyll-admin is an open-source plugin that provides an administrator interface f
 
 
 ## 🚀Goal
-The goals of this forked repository of jekyll-admin are as follows:
-  - Modify jekyll-admin to be usable and developable in a Docker environment.
-  - Identify vulnerabilities in the existing CI/CD workflow (detailed in [Issue#728 at jekyll-admin](https://github.com/jekyll/jekyll-admin/issues/728))  and establish a new workflow for detecting security vulnerabilities using two security tools: [Brakeman](https://brakemanscanner.org/) and [Bundler-audit](https://rubygems.org/gems/bundler-audit/versions/0.4.0).(detailed in https://github.com/cbnuLeehyunwoo/jekyll-admin/issues/7)
-  - Address the unintuitive default image insertion feature of SimpleMDE: Implement a function where dragging and dropping an image's web link into the jekyll-admin editor automatically parses it via a JavaScript event handler and converts it into Markdown image syntax (detailed in https://github.com/cbnuLeehyunwoo/jekyll-admin/issues/12)
-  - I tried resolve the persistent issue(the frontend-backend synchronization issue where the frontend displays a warning even after posts or pages are successfully updated. (detailed in https://github.com/jekyll/jekyll-admin/issues/713, https://github.com/cbnuLeehyunwoo/jekyll-admin/issues/4)
-→  Unfortunately, a reasonable solution could not be found, as resolving one problem often introduced new bugs, creating a cyclical challenge.(detailed in https://github.com/jekyll/jekyll-admin/issues/726).
+This jekyll-admin fork repositories aims to enhance the project by improving the development environment, strengthening security, and enriching the user experience. The following are the specific objectives to achieve this goal:
+
+1. 🐳Modify jekyll-admin to be usable and developable in a Docker environment.
+
+2. 🔒Identify vulnerabilities in the existing CI/CD workflow (detailed in [Issue#728 at jekyll-admin](https://github.com/jekyll/jekyll-admin/issues/728)) and establish a new workflow for detecting security vulnerabilities using two security tools: Brakeman and Bundler-audit.(detailed in [#7](https://github.com/cbnuLeehyunwoo/jekyll-admin/issues/7))
+
+3. 🛠️Trying to resolve the persistent issue(the frontend-backend synchronization issue where the frontend displays a warning even after posts or pages are successfully updated. (detailed in [jekyll#713](https://github.com/jekyll/jekyll-admin/issues/713), [#4](https://github.com/cbnuLeehyunwoo/jekyll-admin/issues/4)) → Unfortunately, a reasonable solution could not be found, as resolving one problem often introduced new bugs, creating a cyclical challenge.([detailed in jekyll#726](https://github.com/jekyll/jekyll-admin/issues/726)).
+
+4. ✨Innovate SimpleMDE Editor Image Insertion UX: Implement a function where dragging and dropping an image's web link into the jekyll-admin editor automatically parses it via a JavaScript event handler and converts it into Markdown image syntax (detailed in [#12](https://github.com/cbnuLeehyunwoo/jekyll-admin/issues/12))
+
 ## 🔗Dependencies
 - This project relies on various external libraries and frameworks across its Node.js/JavaScript and Ruby components. You can view the detailed dependency lists below:
 
