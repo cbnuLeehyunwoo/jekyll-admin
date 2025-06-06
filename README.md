@@ -1,14 +1,19 @@
+# 🍷 Jekyll Admin
 Jekyll-admin is an open-source plugin that provides an administrator interface for Jekyll-based websites. 
+## 📚Table of Contents
+
+[🚀Goal](##-🚀Goal) · [🔗Dependencies](##-🔗Dependencies) · [🧪Install Docker image](##-🧪How-to-Download-and-Install-the-Docker-Image) · [🛠️Run Docker container](##-🛠️How-to-Create-and-Run-a-Docker-Container) · [📁Directory](##-📁Directory-Structure-(Backend:-Ruby,-Frontend:-JavaScript)) · [🧹Exit container and Cleanup](##-🧹How-to-Stop-and-Clean-Up-After-Execution) · [📜License](##-📜License)
+
 ## 🚀Goal
 The goals of this forked repository of jekyll-admin are as follows:
   - Modify jekyll-admin to be usable and developable in a Docker environment.
-  - Identify vulnerabilities in the existing CI/CD workflow and establish a new workflow for detecting security vulnerabilities using two security tools: Brakeman and Bundler-audit.
-  - Address the unintuitive default image insertion feature of SimpleMDE: Implement a function where dragging and dropping an image's web link into the jekyll-admin editor automatically parses it via a JavaScript event handler and converts it into Markdown image syntax.
-  - Resolve the frontend-backend synchronization issue where the frontend displays a warning even after posts or pages are successfully updated.
-→ Attempted but failed (no viable solution found).
+  - Identify vulnerabilities in the existing CI/CD workflow (detailed in [Issue#728 at jekyll-admin](https://github.com/jekyll/jekyll-admin/issues/728))  and establish a new workflow for detecting security vulnerabilities using two security tools: [Brakeman](https://brakemanscanner.org/) and [Bundler-audit](https://rubygems.org/gems/bundler-audit/versions/0.4.0).(detailed in https://github.com/cbnuLeehyunwoo/jekyll-admin/issues/7)
+  - Address the unintuitive default image insertion feature of SimpleMDE: Implement a function where dragging and dropping an image's web link into the jekyll-admin editor automatically parses it via a JavaScript event handler and converts it into Markdown image syntax (detailed in https://github.com/cbnuLeehyunwoo/jekyll-admin/issues/12)
+  - I tried resolve the persistent issue(the frontend-backend synchronization issue where the frontend displays a warning even after posts or pages are successfully updated. (detailed in https://github.com/jekyll/jekyll-admin/issues/713, https://github.com/cbnuLeehyunwoo/jekyll-admin/issues/4)
+→  Unfortunately, a reasonable solution could not be found, as resolving one problem often introduced new bugs, creating a cyclical challenge.(detailed in https://github.com/jekyll/jekyll-admin/issues/726).
 ## 🔗Dependencies
 - This project relies on various external libraries and frameworks across its Node.js/JavaScript and Ruby components. You can view the detailed dependency lists below:
-bash
+
 <details>
 <summary>Node.js/JavaScript Dependencies (Click to expand)</summary> 
 
@@ -154,35 +159,35 @@ https://[SERVER_PUBLIC_IP_ADDRESS]:<YOUR_EXTERNAL_PORT_NUMBER>/admin
 ├── bundlesize.config.json # Configuration file for monitoring and managing JavaScript bundle sizes
 ├── config-overrides.js # File for customizing Create React App (CRA) Webpack settings without ejecting
 ├── docs
-│ ├── _config.yml # Configuration file for the Jekyll documentation site
+│   ├── _config.yml # Configuration file for the Jekyll documentation site
 ├── jekyll-admin.gemspec
 ├── lib # Ruby source code directory
-│ ├── jekyll # Jekyll-related modules or extension code
-│ ├── jekyll-admin # Directory containing the core logic of the Jekyll Admin plugin
-│ └── jekyll-admin.rb # Main entry point or loading file for the Jekyll Admin Gem
+│   ├── jekyll # Jekyll-related modules or extension code
+│   ├── jekyll-admin # Directory containing the core logic of the Jekyll Admin plugin
+│   └── jekyll-admin.rb # Main entry point or loading file for the Jekyll Admin Gem
 ├── package-lock.json # Records the exact versions of Node.js dependencies (packages) installed using npm
 ├── package.json # Defines Node.js project metadata, dependencies, scripts, etc.
 ├── public
-│ ├── favicon.ico
-│ └── index.html # Main HTML file for the frontend application (entry point for React app)
+│   ├── favicon.ico
+│   └── index.html # Main HTML file for the frontend application (entry point for React app)
 ├── screenshot.png
 ├── script # Directory containing various automation scripts
-│ ├── bootstrap # Project initial setup and dependency installation script
-│ ├── branding # Script for creating or managing branding assets
-│ ├── build # Script for building the entire project or specific parts
-│ ├── cibuild # General build script executed in a CI environment
-│ ├── cibuild-node # Node.js/frontend-related build script executed in a CI environment
-│ ├── cibuild-ruby # Ruby/backend-related build script executed in a CI environment
-│ ├── docs-server # Script for starting the documentation site development server
-│ ├── fmt # Script for code formatting or linting
-│ ├── release # Script for automating the project release (deployment) process
-│ ├── server-frontend # Script for starting the frontend development server
-│ └── test-server # Script for starting the test server
+│   ├── bootstrap # Project initial setup and dependency installation script
+│   ├── branding # Script for creating or managing branding assets
+│   ├── build # Script for building the entire project or specific parts
+│   ├── cibuild # General build script executed in a CI environment
+│   ├── cibuild-node # Node.js/frontend-related build script executed in a CI environment
+│   ├── cibuild-ruby # Ruby/backend-related build script executed in a CI environment
+│   ├── docs-server # Script for starting the documentation site development server
+│   ├── fmt # Script for code formatting or linting
+│   ├── release # Script for automating the project release (deployment) process
+│   ├── server-frontend # Script for starting the frontend development server
+│   └── test-server # Script for starting the test server
 ├── spec # Directory containing test files for Ruby code
-│ ├── fixtures # Fixed data for testing
-│ ├── jekyll-admin # Test suite for the jekyll-admin Gem
-│ ├── jekyll_admin_spec.rb # Main test file for the jekyll-admin Gem
-│ └── spec_helper.rb # File assisting with RSpec (Ruby testing framework) test configuration
+│   ├── fixtures # Fixed data for testing
+│   ├── jekyll-admin # Test suite for the jekyll-admin Gem
+│   ├── jekyll_admin_spec.rb # Main test file for the jekyll-admin Gem
+│   └── spec_helper.rb # File assisting with RSpec (Ruby testing framework) test configuration
 ├── src # Source code directory for the frontend (React) application
 └── yarn.lock # Lock file that records the exact versions of Node.js dependencies installed using Yarn (Node.js package manager)
 ```
@@ -202,3 +207,26 @@ $ docker image rm henow123/final_2021076046:v1
 ```
 ## 📜License
 This project is licensed  under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+```
+The MIT License (MIT)
+
+Copyright 2016-present Mert Kahyaoğlu and the Jekyll Admin contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+```
