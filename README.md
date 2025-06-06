@@ -1,12 +1,13 @@
-## Goal
-- Jekyll-admin is an open-source plugin that provides an administrator interface for Jekyll-based websites. The goals of this forked repository of jekyll-admin are as follows:
+Jekyll-admin is an open-source plugin that provides an administrator interface for Jekyll-based websites. 
+## 🚀Goal
+The goals of this forked repository of jekyll-admin are as follows:
   - Modify jekyll-admin to be usable and developable in a Docker environment.
   - Identify vulnerabilities in the existing CI/CD workflow and establish a new workflow for detecting security vulnerabilities using two security tools: Brakeman and Bundler-audit.
   - Address the unintuitive default image insertion feature of SimpleMDE: Implement a function where dragging and dropping an image's web link into the jekyll-admin editor automatically parses it via a JavaScript event handler and converts it into Markdown image syntax.
   - Resolve the frontend-backend synchronization issue where the frontend displays a warning even after posts or pages are successfully updated.
 → Attempted but failed (no viable solution found).
-## Dependencies
-This project relies on various external libraries and frameworks across its Node.js/JavaScript and Ruby components. You can view the detailed dependency lists below:
+## 🔗Dependencies
+- This project relies on various external libraries and frameworks across its Node.js/JavaScript and Ruby components. You can view the detailed dependency lists below:
 bash
 <details>
 <summary>Node.js/JavaScript Dependencies (Click to expand)</summary> 
@@ -89,7 +90,7 @@ bash
 *  jekyll-seo-tag
 *  jekyll-sitemap
 
-#Test Dependencies
+# Test Dependencies
 *  jekyll: (version depends on ENV["JEKYLL_VERSION"])
 *  bigdecimal: (conditional, if RUBY_VERSION >= "3.4" and JEKYLL_VERSION == "~> 3.9")
 *  kramdown-parser-gfm: (conditional, if JEKYLL_VERSION == "~> 3.9")
@@ -100,36 +101,46 @@ bash
 ```
 </details>
 
-## How to Download and Install the Docker Image
-``` bash
-# 1. Pull the Docker image
-docker pull henow123/final_2021076046:v1
+## 🧪How to Download and Install the Docker Image
+``` text
+> 1. Pull the Docker image
+$ docker pull henow123/final_2021076046:v1
 
-# 2. Verify the image
-docker images
+> 2. Verify the image
+$ docker images
 ```
-## How to Create and Run a Docker Container
+## 🛠️How to Create and Run a Docker Container
 
-``` bash
-# 1. Create and run the container in the background
-docker run -dit -p PORT_NUM:4000 henow123/final_2021076046:v1
+``` text
+> 1. Create and run the container in the background
+> Please use the same number for both host and container ports (e.g., 4000:4000)
+$ docker run -dit -p PORT_NUM:PORT_NUM henow123/final_2021076046:v1
 
-# 2. Check running containers
-docker ps
+> 2. Check running containers
+$ docker ps
 
-# 3. Access the container (Use the CONTAINER_ID identified above)
-docker exec -it <CONTAINER_ID> bash
+> 3. Access the container (Use the CONTAINER_ID identified above)
+$ docker exec -it <CONTAINER_ID> bash
 
-#4. Run the test server script to access jekyll-admin
-script/test-server
+> 4. [IMPORTANT] Set environment variables for external access
+Replace with your actual server public IP and the exposed port
+# export JEKYLL_EXTERNAL_HOST=<YOUR_SERVER_PUBLIC_IP>
+# export JEKYLL_EXTERNAL_PORT=<PORT_NUM>
+e.g.) 
+export JEKYLL_EXTERNAL_HOST=123.123.123.123
+export JEKYLL_EXTERNAL_PORT=1234
 
-#5. Access the test server externally
+> 5. Run the test server script to access jekyll-admin
+# script/test-server
+
+> 6. Access the test server externally
 Local environment (Access from the same device where Docker is running):
 https://localhost:<YOUR_EXTERNAL_PORT_NUMBER>/admin
+
 Remote environment (Access from a different device):
 https://[SERVER_PUBLIC_IP_ADDRESS]:<YOUR_EXTERNAL_PORT_NUMBER>/admin
 ```
-## Directory Structure (Backend: Ruby, Frontend: JavaScript)
+## 📁Directory Structure (Backend: Ruby, Frontend: JavaScript)
 
 ``` bash
 .
@@ -175,19 +186,19 @@ https://[SERVER_PUBLIC_IP_ADDRESS]:<YOUR_EXTERNAL_PORT_NUMBER>/admin
 ├── src # Source code directory for the frontend (React) application
 └── yarn.lock # Lock file that records the exact versions of Node.js dependencies installed using Yarn (Node.js package manager)
 ```
-## How to Stop and Clean Up After Execution
+## 🧹How to Stop and Clean Up After Execution
 ``` bash
-# 1. Exit the container
-exit
+> 1. Exit the container
+# exit
 
-# 2. Stop the container
-docker stop <CONTAINER_ID>
+> 2. Stop the container
+$ docker stop <CONTAINER_ID>
 
-# 3. Remove the container
-docker rm <CONTAINER_ID>
+> 3. Remove the container
+$ docker rm <CONTAINER_ID>
 
-# 4. Remove the image
-docker image rm henow123/final_2021076046:v1
+> 4. Remove the image
+$ docker image rm henow123/final_2021076046:v1
 ```
-## License
-This project is licensed under the terms of the MIT License.
+## 📜License
+This project is licensed  under the terms of the [MIT License](https://opensource.org/licenses/MIT).
