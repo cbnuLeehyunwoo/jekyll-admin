@@ -144,12 +144,16 @@ export JEKYLL_EXTERNAL_PORT=1234
 # script/test-server
 
 > 6. Access the test server externally
-Local environment (Access from the same device where Docker is running):
+If Local environment (Access from the same device where Docker is running):
 https://localhost:<YOUR_EXTERNAL_PORT_NUMBER>/admin
 
-Remote environment (Access from a different device):
+If Remote environment (Access from a different device):
 https://[SERVER_PUBLIC_IP_ADDRESS]:<YOUR_EXTERNAL_PORT_NUMBER>/admin
+
+> 7. A test Jekyll site will be up and running, 
+allowing you to explore and test all features of `jekyll-admin` in a near-production environment.
 ```
+
 ## 📁Directory Structure (Backend: Ruby, Frontend: JavaScript)
 
 ``` bash
@@ -197,7 +201,7 @@ https://[SERVER_PUBLIC_IP_ADDRESS]:<YOUR_EXTERNAL_PORT_NUMBER>/admin
 └── yarn.lock # Lock file that records the exact versions of Node.js dependencies installed using Yarn (Node.js package manager)
 ```
 ## 🧹How to Stop and Clean Up After Execution
-``` bash
+``` text
 > 1. Exit the container
 # exit
 
