@@ -134,11 +134,14 @@ $ docker exec -it <CONTAINER_ID> bash
 
 > 4. [IMPORTANT] Set environment variables for external access
 Replace with your actual server public IP and the exposed port
-# export JEKYLL_EXTERNAL_HOST=<YOUR_SERVER_PUBLIC_IP>
-# export JEKYLL_EXTERNAL_PORT=<PORT_NUM>
+# export JEKYLL_EXTERNAL_HOST=<YOUR_SERVER_PUBLIC_IP> >> ~/.bashrc
+# export JEKYLL_EXTERNAL_PORT=<PORT_NUM> >> ~/.bashrc
 e.g.) 
 export JEKYLL_EXTERNAL_HOST=123.123.123.123
 export JEKYLL_EXTERNAL_PORT=1234
+you can check it did well by
+# echo "JEKYLL_EXTERNAL_HOST set to: ${JEKYLL_EXTERNAL_HOST}"
+# echo "JEKYLL_EXTERNAL_PORT set to: ${JEKYLL_EXTERNAL_PORT}"
 
 > 5. Run the test server script to access jekyll-admin
 # script/test-server
