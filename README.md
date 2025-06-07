@@ -152,6 +152,7 @@ https://[SERVER_PUBLIC_IP_ADDRESS]:<YOUR_EXTERNAL_PORT_NUMBER>/admin
 
 > 7. A test Jekyll site will be up and running, 
 allowing you to explore and test all features of `jekyll-admin` in a near-production environment.
+e.g.) make new post, draft or page and test Web image drag n drop!
 ```
 
 ## 📁Directory Structure (Backend: Ruby, Frontend: JavaScript)
