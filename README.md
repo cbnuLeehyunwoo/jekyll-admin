@@ -140,8 +140,8 @@ e.g.)
 export JEKYLL_EXTERNAL_HOST=123.123.123.123
 export JEKYLL_EXTERNAL_PORT=1234
 you can check it did well by
-# echo "JEKYLL_EXTERNAL_HOST set to: ${JEKYLL_EXTERNAL_HOST}"
-# echo "JEKYLL_EXTERNAL_PORT set to: ${JEKYLL_EXTERNAL_PORT}"
+# echo "JEKYLL_EXTERNAL_HOST set to: ${JEKYLL_EXTERNAL_HOST}" >> ~/.bashrc
+# echo "JEKYLL_EXTERNAL_PORT set to: ${JEKYLL_EXTERNAL_PORT}" >> ~/.bashrc
 
 > 5. Run the test server script to access jekyll-admin
 # script/test-server
