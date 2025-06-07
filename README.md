@@ -137,21 +137,22 @@ Replace with your actual server public IP and the exposed port
 # export JEKYLL_EXTERNAL_HOST=<YOUR_SERVER_PUBLIC_IP> >> ~/.bashrc
 # export JEKYLL_EXTERNAL_PORT=<PORT_NUM> >> ~/.bashrc
 e.g.) 
-export JEKYLL_EXTERNAL_HOST=123.123.123.123
-export JEKYLL_EXTERNAL_PORT=1234
-you can check it did well by
-# echo "JEKYLL_EXTERNAL_HOST set to: ${JEKYLL_EXTERNAL_HOST}" >> ~/.bashrc
-# echo "JEKYLL_EXTERNAL_PORT set to: ${JEKYLL_EXTERNAL_PORT}" >> ~/.bashrc
+export JEKYLL_EXTERNAL_HOST=123.123.123.123 >> ~/.bashrc
+export JEKYLL_EXTERNAL_PORT=1234 >> ~/.bashrc
+
+  > 4.1 you can check it did well by
+  # echo "JEKYLL_EXTERNAL_HOST set to: ${JEKYLL_EXTERNAL_HOST}" 
+  # echo "JEKYLL_EXTERNAL_PORT set to: ${JEKYLL_EXTERNAL_PORT}" 
 
 > 5. Run the test server script to access jekyll-admin
 # script/test-server
 
 > 6. Access the test server externally
 If Local environment (Access from the same device where Docker is running):
-https://localhost:<YOUR_EXTERNAL_PORT_NUMBER>/admin
+http://localhost:<YOUR_EXTERNAL_PORT_NUMBER>/admin
 
 If Remote environment (Access from a different device):
-https://[SERVER_PUBLIC_IP_ADDRESS]:<YOUR_EXTERNAL_PORT_NUMBER>/admin
+http://[SERVER_PUBLIC_IP_ADDRESS]:<YOUR_EXTERNAL_PORT_NUMBER>/admin
 
 > 7. A test Jekyll site will be up and running, 
 allowing you to explore and test all features of `jekyll-admin` in a near-production environment.
