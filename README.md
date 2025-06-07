@@ -208,7 +208,8 @@ e.g.) make new post, draft or page and test Web image drag n drop!
 ```
 ## 🧹How to Stop and Clean Up After Execution
 ``` text
-> 1. Exit the container
+> 1. Stop server and Exit the container
+Press Ctrl+C to stop server
 # exit
 
 > 2. Stop the container
