@@ -126,11 +126,12 @@ $ docker images
 > Please use the same number for both host and container ports (e.g., 4000:4000)
 $ docker run -dit -p PORT_NUM:PORT_NUM henow123/final_2021076046:v1
 
-> 2. Check running containers
+> 2. Check running containers 
 $ docker ps
 
-> 3. Access the container (Use the CONTAINER_ID identified above)
+> 3. Access the container & project dir (Use the CONTAINER_ID identified above)
 $ docker exec -it <CONTAINER_ID> bash
+# cd ~/jekyll-admin
 
 > 4. [IMPORTANT] Set environment variables for external access
 Replace with your actual server public IP and the exposed port
